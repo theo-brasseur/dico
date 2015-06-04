@@ -1,0 +1,2369 @@
+#############################################################################
+## Copyright (c) 1996, Carnegie Mellon University, Cambridge University,
+## Ronald Rosenfeld and Philip Clarkson
+## Version 3, Copyright (c) 2006, Carnegie Mellon University 
+## Contributors includes Wen Xu, Ananlada Chotimongkol, 
+## David Huggins-Daines, Arthur Chan and Alan Black 
+#############################################################################
+=============================================================================
+===============  This file was produced by the CMU-Cambridge  ===============
+===============     Statistical Language Modeling Toolkit     ===============
+=============================================================================
+This is a 3-gram language model, based on a vocabulary of 410 words,
+  which begins """, ""pour", "-"...
+This is a CLOSED-vocabulary model
+  (OOVs eliminated from training data and are forbidden in test data)
+Good-Turing discounting was applied.
+1-gram frequency of frequency : 255 
+2-gram frequency of frequency : 733 83 21 13 4 5 2 
+3-gram frequency of frequency : 964 50 6 4 5 0 1 
+1-gram discounting ratios : 0.99 
+2-gram discounting ratios : 0.20 0.36 0.82 0.37 
+3-gram discounting ratios : 0.09 0.17 0.89 
+This file is in the ARPA-standard format introduced by Doug Paul.
+
+p(wd3|wd1,wd2)= if(trigram exists)           p_3(wd1,wd2,wd3)
+                else if(bigram w1,w2 exists) bo_wt_2(w1,w2)*p(wd3|wd2)
+                else                         p(wd3|w2)
+
+p(wd2|wd1)= if(bigram exists) p_2(wd1,wd2)
+            else              bo_wt_1(wd1)*p_1(wd2)
+
+All probs and back-off weights (bo_wt) are given in log10 form.
+
+Data formats:
+
+Beginning of data mark: \data\
+ngram 1=nr            # number of 1-grams
+ngram 2=nr            # number of 2-grams
+ngram 3=nr            # number of 3-grams
+
+\1-grams:
+p_1     wd_1 bo_wt_1
+\2-grams:
+p_2     wd_1 wd_2 bo_wt_2
+\3-grams:
+p_3     wd_1 wd_2 wd_3 
+
+end of data mark: \end\
+
+\data\
+ngram 1=410
+ngram 2=867
+ngram 3=1031
+
+\1-grams:
+-3.0612 "	-0.0902
+-3.0612 "pour	-0.0984
+-3.0612 -	-0.0899
+-3.0612 -je	-0.0991
+-3.0612 0.821.00.25.25	-0.0987
+-3.0612 </s>	0.0000
+-3.0612 <s>	0.0000
+-1.4434 ?	-0.2001
+-2.1531 a	-0.1320
+-3.0612 accessibles	-0.0972
+-2.5790 accéder	-0.1482
+-3.0612 acheminés	-0.0879
+-2.7551 acheter	-0.0895
+-3.0612 adresse	-0.0976
+-3.0612 agents	-0.0953
+-3.0612 ah	-0.0984
+-3.0612 ai-je	-0.0957
+-3.0612 ainsi	-0.0991
+-2.1531 air	-0.6985
+-2.3572 aller	-0.1556
+-3.0612 alliance,	-0.0949
+-3.0612 alors	-0.0871
+-2.7551 annonce	-0.0988
+-3.0612 ap	-0.0984
+-3.0612 aperçu	-0.0991
+-3.0612 appelle	-0.0984
+-2.3572 après	-0.4143
+-3.0612 arrivant	-0.0991
+-3.0612 arrive	-0.0875
+-3.0612 arrivée,	-0.0991
+-2.2780 arrivées	-0.2958
+-3.0612 arrêt	-0.0961
+-3.0612 ascenseur	-0.0902
+-3.0612 at	-0.0991
+-1.5790 au	-0.5986
+-2.7551 automatique	-0.0980
+-2.5790 aux	-0.0980
+-2.7551 avant	-0.0871
+-2.5790 avec	-0.1462
+-2.7551 avez-vous	-0.0899
+-3.0612 aérienne.	-0.0991
+-3.0612 b	-0.0871
+-2.5790 bagage	-0.0768
+-2.2780 bagages	-0.1323
+-3.0612 bars	-0.0937
+-3.0612 billet	-0.0871
+-2.7551 billets	-0.0748
+-3.0612 billetterie	-0.0922
+-3.0612 bornes	-0.0941
+-3.0612 botf	-0.0984
+-3.0612 bout	-0.0871
+-2.4541 boutiques	-0.0650
+-3.0612 bureau	-0.0871
+-3.0612 bus	-0.0922
+-2.7551 bx	-0.1941
+-3.0612 bénéficiez	-0.0991
+-3.0612 café	-0.0836
+-3.0612 car	-0.0859
+-2.4541 cars	-0.1958
+-3.0612 cdg	-0.0836
+-2.1019 cdgval	-0.1196
+-3.0612 cdgval,	-0.0984
+-2.7551 ce	-0.0891
+-2.5790 cent	-0.0984
+-2.7551 centre	-0.0836
+-3.0612 cependant	-0.0991
+-3.0612 cependant,	-0.0859
+-3.0612 ces	-0.0991
+-2.5790 cette	-0.0961
+-3.0612 champs	-0.0991
+-3.0612 chance	-0.0871
+-3.0612 change	-0.0836
+-3.0612 cher	-0.0922
+-3.0612 chez	-0.0991
+-2.5790 cinq	-0.0824
+-3.0612 cinquante	-0.0991
+-3.0612 circulation	-0.0899
+-2.7551 combien	-0.0984
+-3.0612 commence	-0.0987
+-3.0612 commencera	-0.0899
+-2.3572 comment	-0.1686
+-3.0612 commercial	-0.0871
+-2.3572 compagnie	-0.8742
+-2.7551 compte	-0.0984
+-3.0612 comptez	-0.0987
+-2.7551 comptoir	-0.0988
+-3.0612 comptoirs	-0.0953
+-3.0612 confisqué	-0.0937
+-3.0612 connectant	-0.0980
+-3.0612 conseille	-0.0875
+-2.7551 consigne	-0.0895
+-2.5790 contrôles	-0.1438
+-3.0612 correspondance	-0.0922
+-3.0612 coûte	-0.0937
+-3.0612 c’est	-0.0984
+-3.0612 d'	-0.0991
+-2.7551 d'embarquement	-0.0980
+-3.0612 d'embarquement,	-0.0968
+-3.0612 d'embarquement.	-0.0879
+-3.0612 d'enregistrer	-0.0987
+-2.1531 dans	-0.0674
+-1.5510 de	-0.1309
+-3.0612 demande	-0.0871
+-3.0612 demander	-0.0899
+-3.0612 demandés,	-0.0914
+-3.0612 depuis	-0.0972
+-3.0612 derrière	-0.0914
+-2.0147 des	-0.1933
+-3.0612 detaxer	-0.0987
+-2.2780 deux	-0.0764
+-3.0612 deuxième	-0.0991
+-2.7551 direction	-0.0988
+-3.0612 dirigeant	-0.0984
+-3.0612 disneyland	-0.0836
+-2.7551 disposition	-0.0780
+-2.7551 distributeur	-0.0855
+-3.0612 dix	-0.0976
+-3.0612 dix,	-0.0879
+-2.7551 dix-huit	-0.0964
+-3.0612 dois	-0.0991
+-2.7551 dois-je	-0.0988
+-3.0612 donc	-0.0991
+-3.0612 douanes	-0.0991
+-2.7551 droite	-0.0895
+-3.0612 dtpp	-0.0984
+-2.1019 du	-0.1192
+-2.7551 duty-free	-0.0816
+-3.0612 déclarations	-0.0941
+-3.0612 départ,	-0.0991
+-2.2780 départs	-0.1104
+-2.7551 dépose	-0.1945
+-3.0612 désolés	-0.0984
+-2.7551 détaxe	-0.0776
+-3.0612 détaxe,	-0.0879
+-3.0612 détruits.	-0.0968
+-3.0612 emballer	-0.0980
+-3.0612 embarquement	-0.0991
+-2.5790 emprunter	-0.1470
+-1.9770 en	-0.1104
+-3.0612 enregistrement	-0.0922
+-3.0612 enregistrer	-0.0987
+-3.0612 enregistrée,	-0.0968
+-2.5790 entre	-0.1370
+-2.7551 environ	-0.0972
+-1.8801 est	-0.4157
+-1.9770 et	-0.1492
+-3.0612 euros	-0.0987
+-3.0612 existe-t-il	-0.0957
+-3.0612 face	-0.0899
+-2.5790 faire	-0.1598
+-3.0612 faudra	-0.0987
+-2.5790 faut	-0.0922
+-2.7551 faut-il	-0.0863
+-3.0612 fr	-0.0987
+-2.2780 france	-0.1656
+-3.0612 france.	-0.0968
+-3.0612 france?	-0.0968
+-2.4541 gare	-0.0808
+-3.0612 gouv	-0.0984
+-3.0612 gratuites	-0.0976
+-2.3572 hall	-0.3666
+-2.5790 halls	-0.0910
+-2.2780 heure	-0.0832
+-3.0612 heure,	-0.0949
+-2.5790 huit	-0.0867
+-3.0612 huit,	-0.0968
+-3.0612 hôtel	-0.0899
+-2.7551 hôtels	-0.0922
+-3.0612 icare,	-0.0991
+-2.2110 il	-0.5623
+-3.0612 ils	-0.0941
+-3.0612 indications	-0.0991
+-2.7551 inférieur	-0.0820
+-3.0612 inférieur,	-0.0968
+-3.0612 instant	-0.0972
+-3.0612 internet	-0.0991
+-3.0612 intérieur	-0.0984
+-2.7551 j'ai	-0.0953
+-3.0612 j'attends	-0.0957
+-2.2780 je	-0.3029
+-3.0612 joindre	-0.0972
+-2.7551 jours	-0.0883
+-3.0612 jusqu'à	-0.0895
+-3.0612 l'année,	-0.0984
+-3.0612 l'arrivée	-0.0961
+-3.0612 l'attérissage	-0.0899
+-3.0612 l'aéroport	-0.0879
+-3.0612 l'aéroport,	-0.0984
+-2.7551 l'enregistrement	-0.0760
+-3.0612 l'espace	-0.0991
+-3.0612 l'état	-0.0961
+-1.6412 la	-0.3510
+-1.5648 le	-0.1824
+-1.5121 les	-0.2490
+-3.0612 livraison	-0.0953
+-3.0612 long	-0.0871
+-3.0612 lors	-0.0953
+-2.7551 loueurs	-0.0812
+-3.0612 l’adresse	-0.0991
+-3.0612 m'a	-0.0991
+-3.0612 m'en	-0.0991
+-3.0612 ma	-0.0991
+-3.0612 mail	-0.0899
+-2.5790 mais	-0.0941
+-3.0612 malheureusement	-0.0984
+-3.0612 manger	-0.0836
+-3.0612 marne	-0.0895
+-3.0612 me	-0.0991
+-2.7551 mes	-0.1930
+-3.0612 message	-0.0991
+-3.0612 mille	-0.0984
+-2.7551 minute	-0.0776
+-2.7551 minutes	-0.0899
+-3.0612 moi.	-0.0991
+-3.0612 moins	-0.0991
+-3.0612 moment	-0.0871
+-2.4541 mon	-0.0949
+-3.0612 monde	-0.0949
+-3.0612 morillons	-0.0991
+-2.7551 moyen	-0.1829
+-3.0612 mètres	-0.0902
+-2.5790 n'est	-0.1594
+-3.0612 navette	-0.0991
+-2.7551 navettes	-0.1879
+-3.0612 ne	-0.0991
+-3.0612 neuf	-0.0899
+-3.0612 neuf,	-0.0949
+-1.6582 niveau	-0.7342
+-3.0612 non	-0.0991
+-3.0612 normalement	-0.0899
+-2.7551 nous	-0.0988
+-3.0612 nécessaire	-0.0871
+-2.5790 objet	-0.0922
+-2.4541 objets	-0.0863
+-3.0612 objetstrouvesfourriere	-0.0991
+-2.7551 offre	-0.1829
+-2.7551 on	-0.0961
+-2.7551 onze	-0.0832
+-2.7551 ou	-0.0914
+-3.0612 oui	-0.0991
+-3.0612 oui,	-0.0949
+-3.0612 ouvert	-0.0991
+-3.0612 ouvert.	-0.0987
+-1.6759 où	-0.9992
+-2.2780 par	-0.0691
+-3.0612 parcours	-0.0984
+-2.1531 paris	-0.9863
+-3.0612 paris,	-0.0987
+-3.0612 paris.	-0.0914
+-3.0612 paris?	-0.0972
+-2.7551 part	-0.0945
+-2.5790 pas	-0.1598
+-2.5790 passagers	-0.1567
+-3.0612 passagers?	-0.0991
+-2.7551 passer	-0.1914
+-3.0612 patienter	-0.0937
+-3.0612 perdu	-0.0937
+-3.0612 personnel.	-0.0987
+-3.0612 peuvent	-0.0991
+-3.0612 peux	-0.0991
+-2.5790 pharmacie	-0.0678
+-3.0612 plan	-0.0871
+-2.5790 plus	-0.0984
+-2.5790 point	-0.0984
+-3.0612 police,	-0.0949
+-3.0612 portable	-0.0836
+-1.9100 porte	-0.0662
+-2.7551 portes	-0.0972
+-2.7551 possible	-0.1829
+-2.7551 poste	-0.0776
+-1.7774 pour	-0.4439
+-2.7551 pouvez	-0.0980
+-3.0612 pouvoir	-0.0984
+-3.0612 prefpol	-0.0984
+-3.0612 prenant	-0.0875
+-2.5790 prendre	-0.1430
+-2.7551 prenez	-0.0816
+-3.0612 presse,	-0.0957
+-3.0612 prestataire	-0.0987
+-3.0612 pris	-0.0964
+-3.0612 privée,	-0.0902
+-3.0612 prière	-0.0922
+-3.0612 prières	-0.0937
+-3.0612 proche	-0.0836
+-3.0612 proximité	-0.0871
+-3.0612 présenter	-0.0836
+-3.0612 prévu	-0.0899
+-3.0612 publique	-0.0991
+-2.2110 puis-je	-0.1361
+-3.0612 qu'au	-0.0899
+-3.0612 qu'en	-0.0991
+-3.0612 quand	-0.0914
+-3.0612 quarante	-0.0984
+-3.0612 quarante-huit	-0.0836
+-2.5790 quatre	-0.0852
+-2.7551 que	-0.0926
+-2.4541 quel	-0.1864
+-2.5790 quelle	-0.1532
+-2.5790 qui	-0.1548
+-2.3572 quinze	-0.0824
+-3.0612 rapide	-0.0922
+-3.0612 rapprocher	-0.0961
+-3.0612 rayons	-0.0991
+-3.0612 recharger	-0.0980
+-3.0612 recommande	-0.0875
+-3.0612 remplir	-0.0899
+-3.0612 remplissant	-0.0859
+-3.0612 rendez	-0.0987
+-2.3572 rer	-0.0776
+-3.0612 reseau	-0.0991
+-3.0612 restauration	-0.0879
+-3.0612 retirés	-0.0987
+-3.0612 retrouver?	-0.0859
+-3.0612 roissypole	-0.0984
+-3.0612 roulants,	-0.0879
+-3.0612 rue	-0.0953
+-3.0612 réclamés	-0.0941
+-3.0612 récupérer.	-0.0987
+-3.0612 récupérer?	-0.0859
+-3.0612 s'	-0.0991
+-2.4541 salle	-0.1312
+-3.0612 salles	-0.0991
+-2.7551 salons	-0.0934
+-3.0612 sddep	-0.0984
+-1.8801 se	-0.5055
+-3.0612 seize	-0.0937
+-3.0612 semaines.	-0.0991
+-2.5790 sept	-0.0883
+-3.0612 sept,	-0.0871
+-3.0612 service	-0.0972
+-3.0612 services	-0.0972
+-3.0612 si	-0.0949
+-3.0612 simple.	-0.0902
+-2.7551 situe	-0.1837
+-2.7551 situent	-0.0859
+-3.0612 situé	-0.0875
+-2.7551 située	-0.0988
+-3.0612 situés	-0.0879
+-2.2110 six	-0.0699
+-3.0612 six,	-0.0879
+-3.0612 sncf	-0.0991
+-3.0612 soixante	-0.0976
+-3.0612 soixante-dix-neuf	-0.0991
+-3.0612 sommes	-0.0991
+-3.0612 sonore	-0.0922
+-3.0612 sonore?	-0.0987
+-1.9100 sont	-0.4420
+-3.0612 sont-ils	-0.0991
+-2.7551 sortent	-0.1930
+-3.0612 sortis	-0.0836
+-3.0612 star	-0.0991
+-3.0612 starbuck	-0.0964
+-3.0612 suis	-0.0991
+-3.0612 suis-je	-0.0836
+-2.7551 suivant	-0.0856
+-3.0612 supérieur	-0.0949
+-2.4541 sur	-0.0938
+-3.0612 systématiquement	-0.0991
+-3.0612 sécurité,	-0.0941
+-3.0612 tapis	-0.0991
+-3.0612 taxi	-0.0922
+-2.7551 taxis	-0.0715
+-3.0612 taxis,	-0.0991
+-3.0612 temps	-0.0922
+-3.0612 tenu	-0.0871
+-2.1531 terminal	-0.2349
+-3.0612 tgv	-0.0937
+-3.0612 tgv,	-0.0902
+-3.0612 tintouin.	-0.0836
+-2.5790 tiret	-0.0984
+-3.0612 toulouse	-0.0949
+-2.5790 tous	-0.7324
+-2.7551 tout	-0.0756
+-3.0612 toute	-0.0991
+-3.0612 trafic	-0.0902
+-2.3572 train	-0.1162
+-2.7551 transport	-0.1833
+-2.3572 trente	-0.0824
+-2.5790 trois	-0.0859
+-2.1531 trouve	-0.4971
+-2.7551 trouvent	-0.0930
+-2.2110 trouverez	-0.2363
+-3.0612 trouvez	-0.0879
+-3.0612 téléphone	-0.0879
+-1.8801 un	-0.1064
+-2.0561 une	-0.1292
+-3.0612 valise	-0.0984
+-3.0612 valise,	-0.0984
+-3.0612 vallée	-0.0902
+-2.5790 vers	-0.0768
+-3.0612 via	-0.0991
+-2.5790 vingt	-0.0867
+-3.0612 voici	-0.0937
+-3.0612 voir	-0.0859
+-3.0612 voiture	-0.0836
+-2.2110 vol	-0.1033
+-3.0612 volé	-0.0953
+-1.9770 votre	-0.1191
+-1.7339 vous	-0.2388
+-2.7551 voyager	-0.1941
+-3.0612 vérifie	-0.0902
+-3.0612 vérifier	-0.0984
+-3.0612 wifi	-0.0836
+-3.0612 wifi,	-0.0949
+-3.0612 x.	-0.0976
+-3.0612 zone	-0.0991
+-1.6582 à	-0.1336
+-3.0612 était	-0.0991
+-2.7551 été	-0.0988
+-3.0612 ﻿<s>	0.0000
+
+\2-grams:
+-0.6887 " où 0.1272
+-0.6887 "pour accéder 0.0797
+-0.6887 - niveau -0.0367
+-0.6887 -je enregistrer 0.0592
+-0.6887 0.821.00.25.25 ou 0.0066
+-2.3015 ? "pour 0.0592
+-1.7529 ? au 0.3982
+-2.3015 ? compte 0.0066
+-2.3015 ? des -0.0321
+-1.7529 ? en -0.0053
+-2.3015 ? ils 0.0592
+-2.3015 ? je 0.1890
+-2.3015 ? l'enregistrement 0.0066
+-0.9138 ? la 0.0265
+-1.4456 ? le -0.0162
+-1.4456 ? les 0.0408
+-2.3015 ? niveau 0.0789
+-2.3015 ? oui 0.0592
+-2.3015 ? oui, 0.0592
+-2.3015 ? par -0.0252
+-1.7529 ? pour 0.0218
+-2.3015 ? prenez 0.0066
+-2.3015 ? tous 0.7056
+-2.3015 ? une -0.0076
+-2.3015 ? votre -0.0328
+-0.7097 ? vous -0.2694
+-1.5918 a direction 0.0066
+-1.5918 a où 0.1535
+-1.0432 a quelle 0.0411
+-1.5918 a seize 0.0592
+-1.5918 a volé 0.0592
+-1.0432 a été 0.0592
+-0.6887 accessibles par -0.0252
+-1.1659 accéder au -0.0373
+-0.6172 accéder aux 0.0234
+-0.6887 acheminés au -0.0373
+-0.9898 acheter des -0.0321
+-0.9898 acheter un -0.0343
+-0.6887 adresse trente -0.0221
+-0.6887 agents des -0.0321
+-0.6887 ah trois -0.0096
+-0.6887 ai-je une -0.0313
+-0.6887 ainsi qu'au 0.0592
+-0.1249 air france 0.1163
+-1.5918 air france. 0.0592
+-1.5918 air france? 0.0592
+-1.3877 aller au -0.0185
+-0.5318 aller à -0.0164
+-0.6887 alliance, et -0.0328
+-0.6887 alors de -0.0304
+-0.9898 annonce sonore 0.0592
+-0.9898 annonce sonore? 0.0592
+-0.6887 ap cent -0.0096
+-0.6887 aperçu qu'en 0.0592
+-0.6887 appelle bagage -0.0096
+-0.3078 après le -0.0266
+-0.8391 après les -0.0701
+-0.6887 arrivant chez 0.0592
+-0.6887 arrive le -0.0192
+-0.6887 arrivée, quand 0.0592
+-1.4669 arrivées a 0.0009
+-1.4669 arrivées dans -0.0290
+-1.4669 arrivées en -0.0133
+-0.3870 arrivées porte -0.0208
+-0.6887 arrêt du -0.0039
+-0.6887 ascenseur où 0.0566
+-0.6887 at intérieur 0.0592
+-2.1659 au 0.821.00.25.25 0.0592
+-2.1659 au bout 0.0592
+-2.1659 au deuxième 0.0592
+-2.1659 au long 0.0592
+-2.1659 au moment 0.0592
+-0.1761 au niveau -0.1535
+-2.1659 au reseau 0.0592
+-1.3100 au terminal -0.3290
+-0.9898 automatique jusqu'à 0.0592
+-0.9898 automatique qui 0.0797
+-1.1659 aux rayons 0.0592
+-1.1659 aux salles 0.0592
+-1.1659 aux salons 0.0066
+-0.9898 avant d'enregistrer 0.0592
+-0.9898 avant le -0.0374
+-0.6172 avec la 0.0100
+-1.1659 avec votre -0.0328
+-0.9898 avez-vous un -0.0343
+-0.9898 avez-vous une -0.0313
+-0.6887 aérienne. cependant, 0.0592
+-0.6887 b de -0.0375
+-1.1659 bagage ? -0.0326
+-1.1659 bagage a 0.0009
+-1.1659 bagage du -0.0303
+-0.6110 bagages ? 0.0395
+-1.4669 bagages comment 0.0277
+-1.4669 bagages de -0.0055
+-0.6887 bars est -0.0343
+-0.6887 billet de -0.0304
+-0.9898 billets de -0.0304
+-0.9898 billets le -0.0300
+-0.6887 billetterie pour -0.0358
+-0.6887 bornes sont -0.0339
+-0.6887 botf tiret -0.0096
+-0.6887 bout de -0.0304
+-1.2908 boutiques ? 0.0540
+-1.2908 boutiques de -0.0375
+-1.2908 boutiques en -0.0328
+-1.2908 boutiques tout 0.0066
+-0.6887 bureau de -0.0375
+-0.6887 bus pour 0.0846
+-0.4412 bx cent 0.0234
+-0.6887 bénéficiez alors 0.0592
+-0.6887 café ? -0.0381
+-0.6887 car les -0.0378
+-0.4349 cars air 0.6424
+-0.6887 cdg ? -0.0244
+-1.0944 cdgval après 0.2155
+-1.6430 cdgval au -0.0185
+-1.6430 cdgval comment 0.0277
+-1.6430 cdgval entre 0.0797
+-1.0944 cdgval hall 0.2155
+-1.6430 cdgval j'ai 0.0066
+-1.6430 cdgval j'attends 0.0592
+-0.6887 cdgval, halls -0.0096
+-0.9898 ce niveau -0.0367
+-0.9898 ce que 0.0066
+-1.1659 cent quarante 0.0592
+-1.1659 cent quarante-huit 0.0592
+-1.1659 cent soixante-dix-neuf 0.0592
+-0.9898 centre de -0.0304
+-0.9898 centre du -0.0039
+-0.6887 cependant vérifier 0.0592
+-0.6887 cependant, les -0.0378
+-0.6887 ces tapis 0.0592
+-1.1659 cette adresse 0.0592
+-1.1659 cette direction 0.0066
+-1.1659 cette heure -0.0252
+-0.6887 champs demandés, 0.0592
+-0.6887 chance de -0.0375
+-0.6887 change ? -0.0326
+-0.6887 cher pour 0.0167
+-0.6887 chez moi. 0.0592
+-1.1659 cinq dans -0.0290
+-1.1659 cinq et -0.0384
+-1.1659 cinq où 0.0566
+-0.6887 cinquante euros 0.0592
+-0.6887 circulation à -0.0275
+-0.9898 combien coûte 0.0592
+-0.9898 combien faut-il 0.0066
+-0.6887 commence l'enregistrement 0.0066
+-0.6887 commencera à -0.0367
+-0.8391 comment accéder 0.1206
+-0.8391 comment aller 0.0722
+-1.3877 comment puis-je -0.0274
+-0.6887 commercial de -0.0055
+-0.0792 compagnie air -0.0969
+-1.4669 compagnie aérienne. 0.0592
+-0.9898 compte que 0.0066
+-0.9898 compte tenu 0.0592
+-0.6887 comptez environ 0.0066
+-0.9898 comptoir commercial 0.0592
+-0.9898 comptoir d' 0.0592
+-0.6887 comptoirs des -0.0321
+-0.6887 confisqué un -0.0188
+-0.6887 connectant sur -0.0175
+-0.6887 conseille le -0.0192
+-0.9898 consigne s' 0.0592
+-0.9898 consigne à -0.0367
+-0.6172 contrôles de -0.0347
+-1.1659 contrôles en -0.0328
+-0.6887 correspondance pour -0.0358
+-0.6887 coûte un -0.0343
+-0.6887 c’est plus -0.0096
+-0.6887 d' enregistrement 0.0592
+-0.9898 d'embarquement faut-il 0.0066
+-0.9898 d'embarquement onze 0.0066
+-0.6887 d'embarquement, il 0.1479
+-0.6887 d'embarquement. au 0.4368
+-0.6887 d'enregistrer mes 0.1550
+-1.5918 dans cette -0.0096
+-1.5918 dans l'aéroport, 0.0592
+-1.5918 dans la -0.0285
+-1.5918 dans le -0.0044
+-1.5918 dans ma 0.0592
+-1.5918 dans quel 0.0465
+-1.5918 dans tous 0.7056
+-1.5918 dans votre -0.0328
+-2.1939 de bars 0.0592
+-2.1939 de billets 0.0066
+-2.1939 de change 0.0592
+-2.1939 de faire 0.0797
+-1.1140 de la 0.0568
+-2.1939 de le -0.0374
+-2.1939 de les -0.0378
+-2.1939 de livraison 0.0592
+-1.6453 de paris 0.9623
+-2.1939 de patienter 0.0592
+-2.1939 de police, 0.0592
+-2.1939 de presse, 0.0592
+-2.1939 de prière 0.0592
+-2.1939 de quel 0.0465
+-1.6453 de quinze -0.0032
+-2.1939 de restauration 0.0592
+-2.1939 de six -0.0274
+-2.1939 de sécurité, 0.0592
+-2.1939 de temps 0.0592
+-1.6453 de train -0.0032
+-1.6453 de transport 0.1163
+-2.1939 de voiture 0.0592
+-1.1140 de votre -0.0175
+-2.1939 de voyager 0.1550
+-0.6887 demande de -0.0375
+-0.6887 demander à -0.0367
+-0.6887 demandés, vous -0.0360
+-0.6887 depuis deux -0.0252
+-0.6887 derrière vous -0.0360
+-1.7301 des bagages -0.0252
+-1.7301 des billets 0.0066
+-1.7301 des bornes 0.0592
+-0.6502 des boutiques 0.0321
+-1.7301 des contrôles 0.0797
+-1.7301 des douanes 0.0592
+-1.7301 des loueurs 0.0066
+-1.7301 des morillons 0.0592
+-1.7301 des objets -0.0175
+-0.6887 detaxer avant 0.0066
+-1.4669 deux ? -0.0326
+-1.4669 deux combien 0.0066
+-1.4669 deux et -0.0328
+-1.4669 deux heure, 0.0592
+-1.4669 deux ou 0.0066
+-1.4669 deux semaines. 0.0592
+-0.6887 deuxième arrêt 0.0592
+-0.9898 direction ainsi 0.0592
+-0.9898 direction marne 0.0592
+-0.6887 dirigeant vers -0.0096
+-0.6887 disneyland ? -0.0381
+-0.9898 disposition au 0.4368
+-0.9898 disposition à -0.0367
+-0.9898 distributeur de -0.0375
+-0.9898 distributeur sur -0.0175
+-0.6887 dix après 0.2541
+-0.6887 dix, au 0.4368
+-0.9898 dix-huit avez-vous 0.0066
+-0.9898 dix-huit heure -0.0252
+-0.6887 dois -je 0.0592
+-0.9898 dois-je detaxer 0.0592
+-0.9898 dois-je me 0.0592
+-0.6887 donc malheureusement 0.0592
+-0.6887 douanes peuvent 0.0592
+-0.9898 droite existe-t-il 0.0592
+-0.9898 droite à -0.0367
+-0.6887 dtpp tiret -0.0096
+-1.0944 du cdgval -0.0201
+-1.6430 du monde 0.0592
+-1.6430 du niveau 0.0789
+-1.6430 du service 0.0592
+-1.0944 du terminal -0.0175
+-1.6430 du trafic 0.0592
+-1.6430 du vol -0.0274
+-0.9898 duty-free ? 0.0540
+-0.9898 duty-free après 0.0277
+-0.6887 déclarations sont -0.0339
+-0.6887 départ, lors 0.0592
+-1.4669 départs dans -0.0290
+-1.4669 départs en -0.0133
+-1.4669 départs et 0.0594
+-0.9183 départs porte -0.0274
+-1.4669 départs portes 0.0066
+-0.4412 dépose minute 0.0592
+-0.6887 désolés mais -0.0096
+-0.9898 détaxe ? 0.0162
+-0.9898 détaxe se 0.2907
+-0.6887 détaxe, au 0.4368
+-0.6887 détruits. il 0.1479
+-0.6887 emballer mon -0.0175
+-0.6887 embarquement " 0.0592
+-1.1659 emprunter ces 0.0592
+-0.6172 emprunter les -0.0140
+-1.7679 en duty-free 0.0066
+-1.2193 en porte -0.0274
+-1.7679 en prenant 0.0592
+-1.7679 en remplissant 0.0592
+-1.7679 en salle -0.0175
+-1.7679 en suivant 0.0066
+-1.7679 en tgv, 0.0592
+-1.7679 en voici 0.0592
+-1.2193 en vous -0.0317
+-1.7679 en zone 0.0592
+-0.6887 enregistrement pour 0.0167
+-0.6887 enregistrer mes 0.1550
+-0.6887 enregistrée, il 0.1479
+-1.1659 entre la 0.0486
+-0.6172 entre les -0.0289
+-0.9898 environ cinquante 0.0592
+-0.9898 environ trente -0.0221
+-1.8648 est ce 0.0066
+-0.3979 est la 0.1321
+-0.7849 est le -0.0524
+-1.8648 est ouvert 0.0592
+-1.8648 est prévu 0.0592
+-1.8648 est situé 0.0592
+-1.8648 est située 0.0066
+-1.8648 est à 0.0047
+-0.6880 et au -0.4699
+-1.7679 et cinq -0.0096
+-1.7679 et dix 0.0592
+-1.7679 et en -0.0328
+-1.7679 et est -0.0343
+-1.7679 et la 0.0486
+-1.7679 et neuf, 0.0592
+-1.7679 et sont -0.0339
+-1.7679 et tout 0.0066
+-1.7679 et trente -0.0221
+-0.6887 euros suivant 0.0066
+-0.6887 existe-t-il une -0.0313
+-0.6887 face à -0.0367
+-1.1659 faire emballer 0.0592
+-0.6172 faire passer 0.1163
+-0.6887 faudra environ 0.0066
+-1.1659 faut cependant 0.0592
+-1.1659 faut emprunter -0.0096
+-1.1659 faut se -0.0343
+-0.9898 faut-il de -0.0375
+-0.9898 faut-il voyager 0.1550
+-0.6887 fr on 0.0066
+-0.9183 france ? -0.0080
+-0.9183 france pour -0.0313
+-0.9183 france se 0.3381
+-0.6887 france. puis-je 0.0071
+-0.6887 france? il 0.1479
+-1.2908 gare ? 0.0162
+-1.2908 gare rer -0.0221
+-1.2908 gare sncf 0.0592
+-1.2908 gare tgv 0.0592
+-0.6887 gouv point -0.0096
+-0.6887 gratuites comment 0.0277
+-1.3877 hall cinq -0.0096
+-1.3877 hall neuf 0.0592
+-0.3078 hall six -0.0004
+-1.1659 halls cinq -0.0096
+-1.1659 halls et 0.0594
+-1.1659 halls six -0.0274
+-1.4669 heure arrive 0.0592
+-1.4669 heure commence 0.0592
+-1.4669 heure je 0.1890
+-1.4669 heure où 0.1535
+-1.4669 heure quinze -0.0221
+-1.4669 heure trente -0.0221
+-0.6887 heure, en -0.0328
+-1.1659 huit est -0.0343
+-1.1659 huit et -0.0328
+-1.1659 huit heure -0.0252
+-0.6887 huit, il 0.1479
+-0.6887 hôtel à -0.0275
+-0.9898 hôtels se -0.0188
+-0.9898 hôtels sur -0.0175
+-0.6887 icare, star 0.0592
+-0.4539 il faut 0.0592
+-0.4539 il n'est 0.0953
+-1.5338 il vous -0.0360
+-0.6887 ils sont -0.0339
+-0.6887 indications embarquement 0.0592
+-0.9898 inférieur où 0.1535
+-0.9898 inférieur vous 0.1058
+-0.6887 inférieur, il -0.0274
+-0.6887 instant je -0.0252
+-0.6887 internet via 0.0592
+-0.6887 intérieur point -0.0096
+-0.9898 j'ai perdu 0.0592
+-0.9898 j'ai une -0.0313
+-0.6887 j'attends une -0.0313
+-1.4669 je ne 0.0592
+-1.4669 je peux 0.0592
+-0.3870 je vous -0.0274
+-1.4669 je vérifie 0.0592
+-0.6887 joindre par -0.0252
+-0.9898 jours sur -0.0175
+-0.9898 jours à -0.0275
+-0.6887 jusqu'à la -0.0160
+-0.6887 l'année, sept -0.0096
+-0.6887 l'arrivée du -0.0039
+-0.6887 l'attérissage à -0.0367
+-0.6887 l'aéroport au -0.0373
+-0.6887 l'aéroport, mais -0.0096
+-0.9898 l'enregistrement ? -0.0381
+-0.9898 l'enregistrement pour 0.0167
+-0.6887 l'espace prières 0.0592
+-0.6887 l'état du -0.0303
+-2.1201 la billetterie 0.0592
+-2.1201 la circulation 0.0592
+-0.7324 la compagnie 0.0792
+-2.1201 la consigne 0.0066
+-1.5715 la détaxe 0.0592
+-2.1201 la détaxe, 0.0592
+-1.2642 la gare 0.0592
+-1.5715 la pharmacie 0.0234
+-0.7324 la porte -0.0073
+-1.5715 la poste 0.0592
+-1.5715 la salle 0.0745
+-2.1201 la vallée 0.0592
+-2.1801 le bureau 0.0592
+-1.6315 le centre 0.0592
+-1.6315 le comptoir 0.0592
+-2.1801 le distributeur 0.0066
+-2.1801 le départ, 0.0592
+-1.6315 le dépose 0.1163
+-1.1002 le hall 0.3305
+-2.1801 le moins 0.0592
+-1.6315 le moyen 0.1163
+-1.6315 le plus 0.0234
+-1.3242 le rer 0.0374
+-2.1801 le retrouver? 0.0592
+-2.1801 le récupérer? 0.0592
+-2.1801 le starbuck 0.0592
+-2.1801 le tintouin. 0.0592
+-1.6315 le train -0.0110
+-1.3242 le vol 0.0176
+-2.2450 les agents 0.0592
+-2.2450 les boutiques -0.0175
+-2.2450 les bus 0.0592
+-0.8573 les cars -0.5001
+-2.2450 les champs 0.0592
+-2.2450 les comptoirs 0.0592
+-1.6964 les contrôles 0.1206
+-2.2450 les duty-free 0.0066
+-2.2450 les déclarations 0.0592
+-1.6964 les halls 0.0234
+-1.6964 les hôtels 0.0592
+-2.2450 les indications 0.0592
+-2.2450 les loueurs 0.0066
+-1.6964 les navettes 0.1163
+-1.1651 les objets 0.0321
+-1.1651 les passagers 0.0953
+-2.2450 les passagers? 0.0592
+-2.2450 les portes 0.0066
+-2.2450 les récupérer. 0.0592
+-2.2450 les salons 0.0066
+-2.2450 les services 0.0592
+-1.6964 les taxis 0.0592
+-2.2450 les trouverez -0.0274
+-0.6887 livraison des -0.0321
+-0.6887 long de -0.0055
+-0.6887 lors des -0.0321
+-0.9898 loueurs de -0.0375
+-0.9898 loueurs se -0.0188
+-0.6887 l’adresse prefpol 0.0592
+-0.6887 m'a confisqué 0.0592
+-0.6887 m'en suis 0.0592
+-0.6887 ma valise, 0.0592
+-0.6887 mail à -0.0367
+-1.1659 mais depuis 0.0592
+-1.1659 mais il 0.1479
+-1.1659 mais je -0.0252
+-0.6887 malheureusement pas 0.0797
+-0.6887 manger ? 0.0540
+-0.6887 marne la -0.0370
+-0.6887 me présenter 0.0592
+-0.4412 mes bagages 0.0431
+-0.6887 message personnel. 0.0592
+-0.6887 mille quatre -0.0096
+-0.9898 minute ? -0.0244
+-0.9898 minute se 0.2907
+-0.9898 minutes gratuites 0.0592
+-0.9898 minutes où 0.0566
+-0.6887 moi. si 0.0592
+-0.6887 moins cher 0.0592
+-0.6887 moment de -0.0055
+-1.2908 mon bagage -0.0096
+-1.2908 mon hôtel 0.0592
+-1.2908 mon portable 0.0592
+-1.2908 mon vol -0.0274
+-0.6887 monde et -0.0328
+-0.6887 morillons soixante 0.0592
+-0.4412 moyen de -0.0690
+-0.6887 mètres où 0.1272
+-1.1659 n'est donc 0.0592
+-0.6172 n'est pas 0.1206
+-0.6887 navette privée, 0.0592
+-0.4412 navettes pour -0.0219
+-0.6887 ne m'en 0.0592
+-0.6887 neuf à 0.0047
+-0.6887 neuf, et 0.0594
+-0.6198 niveau arrivées 0.0216
+-0.5528 niveau cdgval 0.0511
+-2.0867 niveau cdgval, 0.0592
+-0.6198 niveau départs 0.0763
+-2.0867 niveau en -0.0133
+-1.5381 niveau inférieur 0.0592
+-2.0867 niveau inférieur, 0.0592
+-2.0867 niveau supérieur 0.0592
+-0.6887 non réclamés 0.0592
+-0.6887 normalement à -0.0367
+-0.9898 nous joindre 0.0592
+-0.9898 nous sommes 0.0592
+-0.6887 nécessaire de -0.0375
+-1.1659 objet a 0.0009
+-1.1659 objet aux -0.0096
+-1.1659 objet dans -0.0290
+-1.2908 objets dans -0.0290
+-1.2908 objets non 0.0592
+-1.2908 objets où -0.0367
+-1.2908 objets retirés 0.0592
+-0.6887 objetstrouvesfourriere at 0.0592
+-0.4412 offre de -0.0347
+-0.9898 on a -0.0290
+-0.9898 on m'a 0.0592
+-0.9898 onze ? -0.0381
+-0.9898 onze mètres 0.0592
+-0.9898 ou est 0.1816
+-0.9898 ou par -0.0252
+-0.6887 oui car 0.0592
+-0.6887 oui, en -0.0328
+-0.6887 ouvert toute 0.0592
+-0.6887 ouvert. avez-vous 0.0066
+-2.0867 où dois 0.0592
+-2.0867 où dois-je 0.0066
+-0.4949 où est -0.0776
+-0.6990 où puis-je 0.0786
+-2.0867 où se 0.2907
+-0.4437 où sont -0.5863
+-1.4669 par la 0.0486
+-1.4669 par le -0.0192
+-1.4669 par mail 0.0592
+-1.4669 par quelle -0.0096
+-1.4669 par téléphone 0.0592
+-1.4669 par un -0.0343
+-0.6887 parcours vers -0.0096
+-0.0580 paris ? 0.0503
+-1.5918 paris comptez 0.0592
+-0.6887 paris, prenez 0.0066
+-0.6887 paris. vous -0.0251
+-0.6887 paris? je 0.1890
+-0.9898 part du -0.0039
+-0.9898 part mon -0.0175
+-1.1659 pas nécessaire 0.0592
+-0.6172 pas possible 0.1163
+-1.1659 passagers du -0.0303
+-0.6172 passagers sortent 0.1163
+-0.6887 passagers? l'espace 0.0592
+-0.4412 passer une -0.0463
+-0.6887 patienter un -0.0343
+-0.6887 perdu un -0.0188
+-0.6887 personnel. j'ai 0.0066
+-0.6887 peuvent demander 0.0592
+-0.6887 peux recharger 0.0592
+-1.1659 pharmacie ? 0.0162
+-1.1659 pharmacie où 0.1535
+-1.1659 pharmacie se -0.0188
+-0.6887 plan de -0.0304
+-1.1659 plus proche 0.0592
+-1.1659 plus rapide 0.0592
+-1.1659 plus simple. 0.0592
+-1.1659 point dtpp 0.0592
+-1.1659 point fr 0.0592
+-1.1659 point gouv 0.0592
+-0.6887 police, et -0.0328
+-0.6887 portable ? -0.0381
+-1.8349 porte ? -0.0381
+-1.8349 porte d'embarquement 0.0066
+-1.8349 porte deux -0.0252
+-1.8349 porte dix, 0.0592
+-1.8349 porte dix-huit 0.0066
+-1.8349 porte huit -0.0096
+-1.8349 porte huit, 0.0592
+-1.8349 porte quatre -0.0096
+-1.8349 porte quinze -0.0221
+-1.8349 porte située 0.0066
+-1.8349 porte six -0.0274
+-1.8349 porte trente -0.0221
+-1.8349 porte trois -0.0096
+-1.8349 porte vingt -0.0096
+-0.9898 portes sept -0.0096
+-0.9898 portes vingt -0.0096
+-0.4412 possible de -0.0347
+-0.9898 poste ? 0.0162
+-0.9898 poste se -0.0188
+-0.9098 pour aller 0.1114
+-1.9898 pour emprunter 0.0797
+-1.9898 pour la 0.0486
+-0.9098 pour le -0.0338
+-0.9098 pour les -0.0543
+-0.6021 pour paris 0.2041
+-1.9898 pour pouvoir 0.0592
+-1.9898 pour prendre 0.0797
+-1.9898 pour toulouse 0.0592
+-1.9898 pour un -0.0343
+-0.9898 pouvez acheter 0.0066
+-0.9898 pouvez nous 0.0066
+-0.6887 pouvoir emprunter 0.0797
+-0.6887 prefpol point -0.0096
+-0.6887 prenant le -0.0300
+-1.1659 prendre le -0.0192
+-0.6172 prendre un -0.0283
+-0.9898 prenez le -0.0300
+-0.9898 prenez un -0.0343
+-0.6887 presse, une -0.0313
+-0.6887 prestataire combien 0.0066
+-0.6887 pris dans -0.0290
+-0.6887 privée, où -0.0367
+-0.6887 prière pour 0.0167
+-0.6887 prières est -0.0343
+-0.6887 proche ? 0.0540
+-0.6887 proximité de -0.0055
+-0.6887 présenter ? -0.0381
+-0.6887 prévu à -0.0367
+-0.6887 publique - 0.0592
+-1.5338 puis-je acheter 0.0066
+-0.9852 puis-je faire 0.1206
+-1.5338 puis-je le -0.0374
+-1.5338 puis-je manger 0.0592
+-0.9852 puis-je prendre 0.1206
+-0.6887 qu'au niveau -0.0275
+-0.6887 qu'en arrivant 0.0592
+-0.6887 quand vous -0.0251
+-0.6887 quarante huit -0.0096
+-0.6887 quarante-huit ? -0.0244
+-1.1659 quatre et -0.0328
+-1.1659 quatre où 0.1272
+-1.1659 quatre paris. 0.0592
+-0.9898 que je -0.0252
+-0.9898 que votre -0.0328
+-0.7422 quel est -0.0011
+-0.7422 quel terminal -0.0175
+-0.6172 quelle heure -0.0096
+-1.1659 quelle porte -0.0339
+-0.6172 qui se 0.2521
+-1.1659 qui était 0.0592
+-1.3877 quinze jours 0.0066
+-1.3877 quinze les -0.0095
+-1.3877 quinze mille 0.0592
+-1.3877 quinze minutes 0.0066
+-1.3877 quinze quel 0.0465
+-0.6887 rapide pour 0.0167
+-0.6887 rapprocher du -0.0303
+-0.6887 rayons x. 0.0592
+-0.6887 recharger mon -0.0175
+-0.6887 recommande le -0.0192
+-0.6887 remplir à -0.0367
+-0.6887 remplissant les -0.0378
+-0.6887 rendez compte 0.0066
+-1.3877 rer a -0.0290
+-1.3877 rer b 0.0592
+-1.3877 rer où 0.1535
+-1.3877 rer pour 0.0846
+-1.3877 rer quel 0.0465
+-0.6887 reseau wifi 0.0592
+-0.6887 restauration au 0.4368
+-0.6887 retirés avant 0.0066
+-0.6887 retrouver? les -0.0095
+-0.6887 roissypole qui 0.0797
+-0.6887 roulants, au 0.4368
+-0.6887 rue des -0.0321
+-0.6887 réclamés sont -0.0339
+-0.6887 récupérer. on 0.0066
+-0.6887 récupérer? les -0.0095
+-0.6887 s' appelle 0.0592
+-1.2908 salle d'embarquement 0.0066
+-1.2908 salle d'embarquement. 0.0592
+-0.7422 salle de -0.0347
+-0.6887 salles d'embarquement, 0.0592
+-0.9898 salons icare, 0.0592
+-0.9898 salons se -0.0188
+-0.6887 sddep tiret -0.0096
+-1.8648 se rapprocher 0.0592
+-1.3162 se situe 0.1163
+-1.3162 se situent 0.0592
+-0.2730 se trouve 0.0592
+-1.3162 se trouvent 0.0592
+-0.6887 seize se 0.2907
+-0.6887 semaines. ai-je 0.0592
+-1.1659 sept et -0.0328
+-1.1659 sept jours 0.0066
+-1.1659 sept un -0.0343
+-0.6887 sept, de -0.0375
+-0.6887 service bagages -0.0252
+-0.6887 services bagages 0.0817
+-0.6887 si votre -0.0328
+-0.6887 simple. où 0.0566
+-0.4412 situe au 0.3982
+-0.9898 situent après 0.0277
+-0.9898 situent au 0.4368
+-0.6887 situé le -0.0374
+-0.9898 située derrière 0.0592
+-0.9898 située face 0.0592
+-0.6887 situés au 0.4368
+-1.5338 six comment 0.0277
+-1.5338 six dois-je 0.0066
+-1.5338 six et -0.0328
+-1.5338 six heure -0.0252
+-1.5338 six où 0.1272
+-1.5338 six rue 0.0592
+-1.5338 six à -0.0367
+-0.6887 six, au 0.4368
+-0.6887 sncf roissypole 0.0592
+-0.6887 soixante quinze -0.0221
+-0.6887 soixante-dix-neuf sont-ils 0.0592
+-0.6887 sommes désolés 0.0592
+-0.6887 sonore pour -0.0358
+-0.6887 sonore? nous 0.0066
+-1.8349 sont accessibles 0.0592
+-1.8349 sont acheminés 0.0592
+-0.2430 sont les 0.0607
+-1.8349 sont normalement 0.0592
+-1.8349 sont situés 0.0592
+-1.8349 sont systématiquement 0.0592
+-1.8349 sont à 0.0047
+-0.6887 sont-ils sortis 0.0592
+-0.4412 sortent par -0.0096
+-0.6887 sortis ? -0.0381
+-0.6887 star alliance, 0.0592
+-0.6887 starbuck a 0.0009
+-0.6887 suis aperçu 0.0592
+-0.6887 suis-je ? 0.0540
+-0.9898 suivant l'état 0.0592
+-0.9898 suivant les -0.0378
+-0.6887 supérieur en -0.0328
+-1.2908 sur cdg 0.0592
+-1.2908 sur internet 0.0592
+-1.2908 sur sept, 0.0592
+-1.2908 sur votre -0.0133
+-0.6887 systématiquement détruits. 0.0592
+-0.6887 sécurité, sont -0.0339
+-0.6887 tapis roulants, 0.0592
+-0.6887 taxi pour 0.0846
+-0.9898 taxis ? 0.0540
+-0.9898 taxis au 0.4368
+-0.6887 taxis, c’est 0.0592
+-0.6887 temps pour 0.0167
+-0.6887 tenu de -0.0055
+-1.5918 terminal dans -0.0290
+-0.5119 terminal deux 0.0066
+-1.5918 terminal part 0.0066
+-1.5918 terminal suis-je 0.0592
+-1.5918 terminal trois -0.0096
+-1.5918 terminal un -0.0188
+-0.6887 tgv se 0.2907
+-0.6887 tgv, où 0.1272
+-0.6887 tintouin. ? -0.0244
+-1.1659 tiret botf 0.0592
+-1.1659 tiret objetstrouvesfourriere 0.0592
+-1.1659 tiret sddep 0.0592
+-0.6887 toulouse en -0.0328
+-0.0859 tous les -0.0254
+-0.9898 tout au -0.0373
+-0.9898 tout le -0.0374
+-0.6887 toute l'année, 0.0592
+-0.6887 trafic où 0.1535
+-0.8391 train automatique 0.0592
+-1.3877 train pour 0.0846
+-1.3877 train vers -0.0096
+-1.3877 train à -0.0275
+-0.4412 transport le -0.0271
+-1.3877 trente du -0.0303
+-1.3877 trente minutes 0.0066
+-1.3877 trente six -0.0274
+-1.3877 trente six, 0.0592
+-1.3877 trente à -0.0367
+-1.1659 trois a -0.0290
+-1.1659 trois où 0.0566
+-1.1659 trois sept -0.0096
+-0.2041 trouve au 0.1925
+-1.5918 trouve dans -0.0290
+-1.5918 trouve entre -0.0096
+-1.5918 trouve le -0.0300
+-0.9898 trouvent entre 0.0797
+-0.9898 trouvent porte -0.0339
+-0.4539 trouverez des -0.8370
+-1.5338 trouverez les -0.0315
+-1.5338 trouverez un -0.0343
+-1.5338 trouverez une -0.0076
+-1.5338 trouverez à -0.0275
+-0.6887 trouvez au -0.0185
+-0.6887 téléphone au -0.0373
+-1.8648 un ascenseur 0.0592
+-1.8648 un billet 0.0592
+-1.8648 un café 0.0592
+-1.8648 un commencera 0.0592
+-1.8648 un distributeur 0.0066
+-1.8648 un instant 0.0592
+-1.8648 un message 0.0592
+-1.3162 un objet 0.0234
+-1.3162 un où 0.0886
+-1.8648 un plan 0.0592
+-1.8648 un taxi 0.0592
+-1.8648 un taxis, 0.0592
+-1.8648 un train -0.0221
+-1.1401 une annonce 0.0592
+-1.6887 une chance 0.0592
+-1.6887 une consigne 0.0066
+-1.6887 une correspondance 0.0592
+-1.6887 une navette 0.0592
+-1.1401 une offre 0.1163
+-1.6887 une pharmacie -0.0096
+-1.6887 une salle 0.0465
+-0.6887 valise qui -0.0096
+-0.6887 valise, mais -0.0096
+-0.6887 vallée où 0.1535
+-1.1659 vers la -0.0285
+-1.1659 vers le -0.0300
+-1.1659 vers paris, 0.0592
+-0.6887 via wifi, 0.0592
+-1.1659 vingt deux -0.0252
+-1.1659 vingt où 0.1272
+-1.1659 vingt quatre -0.0096
+-0.6887 voici un -0.0188
+-0.6887 voir les -0.0095
+-0.6887 voiture ? -0.0244
+-1.5338 vol ? -0.0381
+-1.5338 vol a -0.0290
+-1.5338 vol ah 0.0592
+-1.5338 vol ap 0.0592
+-0.9852 vol bx 0.1163
+-1.5338 vol part 0.0066
+-0.6887 volé des -0.0321
+-1.7679 votre arrivée, 0.0592
+-1.7679 votre bagage -0.0096
+-1.7679 votre compagnie -0.0252
+-1.2193 votre disposition 0.0592
+-1.2193 votre droite 0.0592
+-1.7679 votre objet -0.0096
+-1.7679 votre parcours 0.0592
+-1.7679 votre prestataire 0.0592
+-1.7679 votre valise 0.0592
+-1.7679 votre vol -0.0274
+-2.0110 vous bénéficiez 0.0592
+-2.0110 vous connectant 0.0592
+-2.0110 vous conseille 0.0592
+-2.0110 vous demande 0.0592
+-2.0110 vous dirigeant 0.0592
+-2.0110 vous faudra 0.0592
+-2.0110 vous les -0.0378
+-1.4623 vous pouvez 0.0592
+-2.0110 vous recommande 0.0592
+-2.0110 vous rendez 0.0592
+-2.0110 vous tous 0.7056
+-0.5441 vous trouverez -0.0392
+-2.0110 vous trouvez 0.0592
+-1.4623 vous vous -0.0317
+-0.4412 voyager avec 0.0411
+-0.6887 vérifie où 0.1535
+-0.6887 vérifier avec -0.0096
+-0.6887 wifi ? -0.0326
+-0.6887 wifi, et -0.0328
+-0.6887 x. comment -0.0221
+-0.6887 zone publique 0.0592
+-2.0867 à bagages 0.0817
+-2.0867 à ce 0.0066
+-1.5381 à cette 0.0234
+-2.0867 à disneyland 0.0592
+-2.0867 à dix-huit 0.0066
+-2.0867 à huit -0.0096
+-2.0867 à l'arrivée 0.0592
+-2.0867 à l'attérissage 0.0592
+-2.0867 à l'aéroport 0.0592
+-1.5381 à la 0.0787
+-2.0867 à l’adresse 0.0592
+-2.0867 à mon -0.0175
+-2.0867 à onze 0.0066
+-1.5381 à paris 0.8242
+-2.0867 à paris? 0.0592
+-2.0867 à proximité 0.0592
+-2.0867 à remplir 0.0592
+-2.0867 à vingt -0.0096
+-2.0867 à voir 0.0592
+-1.0067 à votre -0.0098
+-0.6887 était enregistrée, 0.0592
+-0.9898 été ouvert. 0.0592
+-0.9898 été pris 0.0592
+
+\3-grams:
+-1.0525 " où est 
+-1.0525 "pour accéder aux 
+-1.0525 - niveau cdgval, 
+-1.0525 -je enregistrer mes 
+-1.0525 0.821.00.25.25 ou par 
+-1.0525 ? "pour accéder 
+-0.7795 ? au niveau 
+-1.0525 ? compte tenu 
+-1.0525 ? des bornes 
+-1.3536 ? en prenant 
+-1.3536 ? en vous 
+-1.0525 ? ils sont 
+-1.0525 ? je vous 
+-1.0525 ? l'enregistrement pour 
+-1.7515 ? la consigne 
+-1.7515 ? la détaxe 
+-1.7515 ? la gare 
+-1.7515 ? la pharmacie 
+-1.7515 ? la poste 
+-1.0805 ? le comptoir 
+-1.6546 ? le dépose 
+-1.6546 ? le vol 
+-1.6546 ? les cars 
+-1.6546 ? les comptoirs 
+-1.6546 ? les navettes 
+-1.6546 ? les salons 
+-1.0525 ? niveau départs 
+-1.0525 ? oui car 
+-1.0525 ? oui, en 
+-1.0525 ? par le 
+-1.3536 ? pour le 
+-1.3536 ? pour prendre 
+-1.0525 ? prenez un 
+-1.0525 ? tous les 
+-1.0525 ? une offre 
+-1.0525 ? votre vol 
+-1.9556 ? vous les 
+-1.9556 ? vous pouvez 
+-0.2041 ? vous trouverez 
+-1.9556 ? vous vous 
+-1.0525 a direction marne 
+-1.0525 a où sont 
+-0.7795 a quelle heure 
+-1.0525 a seize se 
+-1.0525 a volé des 
+-1.3536 a été ouvert. 
+-1.3536 a été pris 
+-1.0525 accessibles par un 
+-1.0525 accéder au reseau 
+-1.3536 accéder aux salles 
+-1.3536 accéder aux salons 
+-1.0525 acheminés au bout 
+-1.0525 acheter des billets 
+-1.0525 acheter un billet 
+-1.0525 adresse trente six 
+-1.0525 agents des douanes 
+-1.0525 ah trois sept 
+-1.0525 ai-je une chance 
+-1.0525 ainsi qu'au niveau 
+-1.2566 air france ? 
+-1.2566 air france pour 
+-1.2566 air france se 
+-1.0525 air france. puis-je 
+-1.0525 air france? il 
+-1.0525 aller au terminal 
+-1.6546 aller à disneyland 
+-1.6546 aller à mon 
+-1.6546 aller à paris 
+-1.6546 aller à paris? 
+-1.0525 alliance, et tout 
+-1.0525 alors de quinze 
+-1.0525 annonce sonore pour 
+-1.0525 annonce sonore? nous 
+-1.0525 ap cent soixante-dix-neuf 
+-1.0525 aperçu qu'en arrivant 
+-1.0525 appelle bagage du 
+-0.9556 après le hall 
+-1.5297 après le starbuck 
+-0.7795 après les contrôles 
+-1.0525 arrivant chez moi. 
+-1.0525 arrive le vol 
+-1.0525 arrivée, quand vous 
+-1.0525 arrivées a quelle 
+-1.0525 arrivées dans la 
+-1.0525 arrivées en porte 
+-1.5297 arrivées porte dix-huit 
+-1.5297 arrivées porte quinze 
+-1.5297 arrivées porte trente 
+-1.0525 arrêt du cdgval 
+-1.0525 ascenseur où puis-je 
+-1.0525 at intérieur point 
+-1.0525 au 0.821.00.25.25 ou 
+-1.0525 au bout de 
+-1.0525 au deuxième arrêt 
+-1.0525 au long de 
+-1.0525 au moment de 
+-0.6021 au niveau arrivées 
+-0.4559 au niveau cdgval 
+-0.6021 au niveau départs 
+-2.3536 au niveau inférieur 
+-2.3536 au niveau inférieur, 
+-2.3536 au niveau supérieur 
+-1.0525 au reseau wifi 
+-0.1770 au terminal deux 
+-1.6546 au terminal un 
+-1.0525 automatique jusqu'à la 
+-1.0525 automatique qui se 
+-1.0525 aux rayons x. 
+-1.0525 aux salles d'embarquement, 
+-1.0525 aux salons icare, 
+-1.0525 avant d'enregistrer mes 
+-1.0525 avant le départ, 
+-0.7795 avec la compagnie 
+-1.0525 avec votre prestataire 
+-1.0525 avez-vous un plan 
+-1.0525 avez-vous une salle 
+-1.0525 aérienne. cependant, les 
+-1.0525 b de quel 
+-1.0525 bagage ? au 
+-1.0525 bagage a été 
+-1.0525 bagage du monde 
+-1.6546 bagages ? ils 
+-1.6546 bagages ? la 
+-1.6546 bagages ? le 
+-1.6546 bagages ? oui 
+-1.0525 bagages comment aller 
+-1.0525 bagages de votre 
+-1.0525 bars est à 
+-1.0525 billet de train 
+-1.0525 billets de train 
+-1.0525 billets le plus 
+-1.0525 billetterie pour la 
+-1.0525 bornes sont à 
+-1.0525 botf tiret objetstrouvesfourriere 
+-1.0525 bout de quinze 
+-1.0525 boutiques ? vous 
+-1.0525 boutiques de presse, 
+-1.0525 boutiques en duty-free 
+-1.0525 boutiques tout au 
+-1.0525 bureau de change 
+-1.0525 bus pour paris 
+-1.3536 bx cent quarante 
+-1.3536 bx cent quarante-huit 
+-1.0525 bénéficiez alors de 
+-1.0525 café ? une 
+-1.0525 car les agents 
+-1.0805 cars air france 
+-1.6546 cars air france. 
+-1.6546 cars air france? 
+-1.0525 cdg ? les 
+-0.7795 cdgval après le 
+-1.0525 cdgval au terminal 
+-1.0525 cdgval comment accéder 
+-1.0525 cdgval entre les 
+-0.7795 cdgval hall six 
+-1.0525 cdgval j'ai une 
+-1.0525 cdgval j'attends une 
+-1.0525 cdgval, halls cinq 
+-1.0525 ce niveau en 
+-1.0525 ce que je 
+-1.0525 cent quarante huit 
+-1.0525 cent quarante-huit ? 
+-1.0525 cent soixante-dix-neuf sont-ils 
+-1.0525 centre de paris 
+-1.0525 centre du terminal 
+-1.0525 cependant vérifier avec 
+-1.0525 cependant, les déclarations 
+-1.0525 ces tapis roulants, 
+-1.0525 cette adresse trente 
+-1.0525 cette direction ainsi 
+-1.0525 cette heure je 
+-1.0525 champs demandés, vous 
+-1.0525 chance de le 
+-1.0525 change ? au 
+-1.0525 cher pour aller 
+-1.0525 chez moi. si 
+-1.0525 cinq dans quel 
+-1.0525 cinq et six 
+-1.0525 cinq où puis-je 
+-1.0525 cinquante euros suivant 
+-1.0525 circulation à cette 
+-1.0525 combien coûte un 
+-1.0525 combien faut-il de 
+-1.0525 commence l'enregistrement ? 
+-1.0525 commencera à huit 
+-1.3536 comment accéder au 
+-1.3536 comment accéder aux 
+-0.7795 comment aller à 
+-1.0525 comment puis-je le 
+-1.0525 commercial de la 
+-0.0969 compagnie air france 
+-1.0525 compagnie aérienne. cependant, 
+-1.0525 compte que votre 
+-1.0525 compte tenu de 
+-1.0525 comptez environ cinquante 
+-1.0525 comptoir commercial de 
+-1.0525 comptoir d' enregistrement 
+-1.0525 comptoirs des loueurs 
+-1.0525 confisqué un objet 
+-1.0525 connectant sur internet 
+-1.0525 conseille le rer 
+-1.0525 consigne s' appelle 
+-1.0525 consigne à bagages 
+-1.3536 contrôles de police, 
+-1.3536 contrôles de sécurité, 
+-1.0525 contrôles en salle 
+-1.0525 correspondance pour toulouse 
+-1.0525 coûte un taxi 
+-1.0525 c’est plus simple. 
+-1.0525 d' enregistrement pour 
+-1.0525 d'embarquement faut-il voyager 
+-1.0525 d'embarquement onze ? 
+-1.0525 d'embarquement, il faut 
+-1.0525 d'embarquement. au niveau 
+-1.0525 d'enregistrer mes bagages 
+-1.0525 dans cette direction 
+-1.0525 dans l'aéroport, mais 
+-1.0525 dans la salle 
+-1.0525 dans le hall 
+-1.0525 dans ma valise, 
+-1.0525 dans quel terminal 
+-1.0525 dans tous les 
+-1.0525 dans votre valise 
+-1.0525 de bars est 
+-1.0525 de billets le 
+-1.0525 de change ? 
+-1.0525 de faire passer 
+-1.5297 de la circulation 
+-1.5297 de la compagnie 
+-1.5297 de la détaxe, 
+-1.0525 de le retrouver? 
+-1.0525 de les récupérer. 
+-1.0525 de livraison des 
+-1.3536 de paris ? 
+-1.3536 de paris comptez 
+-1.0525 de patienter un 
+-1.0525 de police, et 
+-1.0525 de presse, une 
+-1.0525 de prière pour 
+-1.0525 de quel terminal 
+-1.3536 de quinze jours 
+-1.3536 de quinze minutes 
+-1.0525 de restauration au 
+-1.0525 de six heure 
+-1.0525 de sécurité, sont 
+-1.0525 de temps pour 
+-1.3536 de train pour 
+-1.3536 de train à 
+-0.7795 de transport le 
+-1.0525 de voiture ? 
+-1.5297 de votre arrivée, 
+-1.5297 de votre compagnie 
+-1.5297 de votre parcours 
+-1.0525 de voyager avec 
+-1.0525 demande de patienter 
+-1.0525 demander à voir 
+-1.0525 demandés, vous bénéficiez 
+-1.0525 depuis deux semaines. 
+-1.0525 derrière vous tous 
+-1.0525 des bagages comment 
+-1.0525 des billets de 
+-1.0525 des bornes sont 
+-1.5297 des boutiques de 
+-1.5297 des boutiques en 
+-1.5297 des boutiques tout 
+-1.0525 des contrôles de 
+-1.0525 des douanes peuvent 
+-1.0525 des loueurs se 
+-1.0525 des morillons soixante 
+-1.0525 des objets dans 
+-1.0525 detaxer avant d'enregistrer 
+-1.0525 deux ? en 
+-1.0525 deux combien coûte 
+-1.0525 deux et la 
+-1.0525 deux heure, en 
+-1.0525 deux ou est 
+-1.0525 deux semaines. ai-je 
+-1.0525 deuxième arrêt du 
+-1.0525 direction ainsi qu'au 
+-1.0525 direction marne la 
+-1.0525 dirigeant vers le 
+-1.0525 disneyland ? par 
+-1.0525 disposition au niveau 
+-1.0525 disposition à ce 
+-1.0525 distributeur de billets 
+-1.0525 distributeur sur votre 
+-1.0525 dix après le 
+-1.0525 dix, au niveau 
+-1.0525 dix-huit avez-vous un 
+-1.0525 dix-huit heure quinze 
+-1.0525 dois -je enregistrer 
+-1.0525 dois-je detaxer avant 
+-1.0525 dois-je me présenter 
+-1.0525 donc malheureusement pas 
+-1.0525 douanes peuvent demander 
+-1.0525 droite existe-t-il une 
+-1.0525 droite à onze 
+-1.0525 dtpp tiret sddep 
+-1.3536 du cdgval au 
+-1.3536 du cdgval j'ai 
+-1.0525 du monde et 
+-1.0525 du niveau arrivées 
+-1.0525 du service bagages 
+-1.3536 du terminal dans 
+-1.3536 du terminal trois 
+-1.0525 du trafic où 
+-1.0525 du vol ap 
+-1.0525 duty-free ? vous 
+-1.0525 duty-free après les 
+-1.0525 déclarations sont normalement 
+-1.0525 départ, lors des 
+-1.0525 départs dans tous 
+-1.0525 départs en porte 
+-1.0525 départs et au 
+-1.3536 départs porte huit 
+-1.3536 départs porte huit, 
+-1.0525 départs portes sept 
+-1.3536 dépose minute ? 
+-1.3536 dépose minute se 
+-1.0525 désolés mais il 
+-1.0525 détaxe ? la 
+-1.0525 détaxe se trouve 
+-1.0525 détaxe, au niveau 
+-1.0525 détruits. il n'est 
+-1.0525 emballer mon bagage 
+-1.0525 embarquement " où 
+-1.0525 emprunter ces tapis 
+-0.7795 emprunter les cars 
+-1.0525 en duty-free après 
+-1.3536 en porte dix, 
+-1.3536 en porte vingt 
+-1.0525 en prenant le 
+-1.0525 en remplissant les 
+-1.0525 en salle d'embarquement 
+-1.0525 en suivant les 
+-1.0525 en tgv, où 
+-1.0525 en voici un 
+-1.3536 en vous connectant 
+-1.3536 en vous dirigeant 
+-1.0525 en zone publique 
+-1.0525 enregistrement pour le 
+-1.0525 enregistrer mes bagages 
+-1.0525 enregistrée, il faut 
+-1.0525 entre la porte 
+-1.3536 entre les halls 
+-1.3536 entre les portes 
+-1.0525 environ cinquante euros 
+-1.0525 environ trente minutes 
+-1.0525 est ce que 
+-1.8307 est la billetterie 
+-1.8307 est la détaxe 
+-1.8307 est la gare 
+-1.8307 est la pharmacie 
+-1.8307 est la porte 
+-1.8307 est la poste 
+-1.5297 est le distributeur 
+-0.9556 est le moyen 
+-1.0525 est ouvert toute 
+-1.0525 est prévu à 
+-1.0525 est situé le 
+-1.0525 est située face 
+-1.0525 est à votre 
+-0.0521 et au niveau 
+-1.0525 et cinq dans 
+-1.0525 et dix après 
+-1.0525 et en remplissant 
+-1.0525 et est située 
+-1.0525 et la porte 
+-1.0525 et neuf, et 
+-1.0525 et sont accessibles 
+-1.0525 et tout le 
+-1.0525 et trente du 
+-1.0525 euros suivant l'état 
+-1.0525 existe-t-il une consigne 
+-1.0525 face à l'arrivée 
+-1.0525 faire emballer mon 
+-0.7795 faire passer une 
+-1.0525 faudra environ trente 
+-1.0525 faut cependant vérifier 
+-1.0525 faut emprunter ces 
+-1.0525 faut se rapprocher 
+-1.0525 faut-il de temps 
+-1.0525 faut-il voyager avec 
+-1.0525 fr on m'a 
+-1.3536 france ? le 
+-1.3536 france ? les 
+-1.3536 france pour emprunter 
+-1.3536 france pour pouvoir 
+-1.3536 france se situent 
+-1.3536 france se trouve 
+-1.0525 france. puis-je faire 
+-1.0525 france? il n'est 
+-1.0525 gare ? la 
+-1.0525 gare rer b 
+-1.0525 gare sncf roissypole 
+-1.0525 gare tgv se 
+-1.0525 gouv point fr 
+-1.0525 gratuites comment accéder 
+-1.0525 hall cinq où 
+-1.0525 hall neuf à 
+-1.5297 hall six dois-je 
+-1.5297 hall six où 
+-1.5297 hall six à 
+-1.0525 halls cinq et 
+-1.0525 halls et au 
+-1.0525 halls six et 
+-1.0525 heure arrive le 
+-1.0525 heure commence l'enregistrement 
+-1.0525 heure je vous 
+-1.0525 heure où sont 
+-1.0525 heure quinze les 
+-1.0525 heure trente à 
+-1.0525 heure, en zone 
+-1.0525 huit est prévu 
+-1.0525 huit et dix 
+-1.0525 huit heure où 
+-1.0525 huit, il faut 
+-1.0525 hôtel à paris 
+-1.0525 hôtels se trouvent 
+-1.0525 hôtels sur cdg 
+-1.0525 icare, star alliance, 
+-1.5297 il faut cependant 
+-1.5297 il faut emprunter 
+-1.5297 il faut se 
+-1.5297 il n'est donc 
+-0.9556 il n'est pas 
+-1.0525 il vous faudra 
+-1.0525 ils sont situés 
+-1.0525 indications embarquement " 
+-1.0525 inférieur où sont 
+-1.0525 inférieur vous trouverez 
+-1.0525 inférieur, il vous 
+-1.0525 instant je vérifie 
+-1.0525 internet via wifi, 
+-1.0525 intérieur point gouv 
+-1.0525 j'ai perdu un 
+-1.0525 j'ai une correspondance 
+-1.0525 j'attends une navette 
+-1.0525 je ne m'en 
+-1.0525 je peux recharger 
+-1.5297 je vous conseille 
+-1.5297 je vous demande 
+-1.5297 je vous recommande 
+-1.0525 je vérifie où 
+-1.0525 joindre par téléphone 
+-1.0525 jours sur sept, 
+-1.0525 jours à cette 
+-1.0525 jusqu'à la gare 
+-1.0525 l'année, sept jours 
+-1.0525 l'arrivée du cdgval 
+-1.0525 l'attérissage à dix-huit 
+-1.0525 l'aéroport au moment 
+-1.0525 l'aéroport, mais depuis 
+-1.0525 l'enregistrement ? l'enregistrement 
+-1.0525 l'enregistrement pour le 
+-1.0525 l'espace prières est 
+-1.0525 l'état du trafic 
+-1.0525 la billetterie pour 
+-1.0525 la circulation à 
+-0.0969 la compagnie air 
+-1.0525 la consigne s' 
+-1.3536 la détaxe ? 
+-1.3536 la détaxe se 
+-1.0525 la détaxe, au 
+-1.6546 la gare ? 
+-1.6546 la gare rer 
+-1.6546 la gare sncf 
+-1.6546 la gare tgv 
+-1.3536 la pharmacie ? 
+-1.3536 la pharmacie se 
+-1.7515 la porte d'embarquement 
+-1.7515 la porte deux 
+-1.7515 la porte quatre 
+-1.7515 la porte située 
+-1.7515 la porte six 
+-1.3536 la poste ? 
+-1.3536 la poste se 
+-1.3536 la salle d'embarquement. 
+-1.3536 la salle de 
+-1.0525 la vallée où 
+-1.0525 le bureau de 
+-1.3536 le centre de 
+-1.3536 le centre du 
+-1.3536 le comptoir commercial 
+-1.3536 le comptoir d' 
+-1.0525 le distributeur de 
+-1.0525 le départ, lors 
+-0.7795 le dépose minute 
+-1.5297 le hall cinq 
+-1.5297 le hall neuf 
+-1.5297 le hall six 
+-1.0525 le moins cher 
+-0.7795 le moyen de 
+-1.3536 le plus proche 
+-1.3536 le plus rapide 
+-1.6546 le rer a 
+-1.6546 le rer où 
+-1.6546 le rer pour 
+-1.6546 le rer quel 
+-1.0525 le retrouver? les 
+-1.0525 le récupérer? les 
+-1.0525 le starbuck a 
+-1.0525 le tintouin. ? 
+-0.7795 le train automatique 
+-1.6546 le vol a 
+-1.6546 le vol ah 
+-1.0805 le vol bx 
+-1.0525 les agents des 
+-1.0525 les boutiques ? 
+-1.0525 les bus pour 
+-0.0969 les cars air 
+-1.0525 les champs demandés, 
+-1.0525 les comptoirs des 
+-1.3536 les contrôles de 
+-1.3536 les contrôles en 
+-1.0525 les duty-free ? 
+-1.0525 les déclarations sont 
+-1.3536 les halls et 
+-1.3536 les halls six 
+-1.3536 les hôtels se 
+-1.3536 les hôtels sur 
+-1.0525 les indications embarquement 
+-1.0525 les loueurs de 
+-0.7795 les navettes pour 
+-1.5297 les objets non 
+-1.5297 les objets où 
+-1.5297 les objets retirés 
+-1.5297 les passagers du 
+-0.9556 les passagers sortent 
+-1.0525 les passagers? l'espace 
+-1.0525 les portes vingt 
+-1.0525 les récupérer. on 
+-1.0525 les salons se 
+-1.0525 les services bagages 
+-1.3536 les taxis ? 
+-1.3536 les taxis au 
+-1.0525 les trouverez à 
+-1.0525 livraison des bagages 
+-1.0525 long de votre 
+-1.0525 lors des contrôles 
+-1.0525 loueurs de voiture 
+-1.0525 loueurs se trouvent 
+-1.0525 l’adresse prefpol point 
+-1.0525 m'a confisqué un 
+-1.0525 m'en suis aperçu 
+-1.0525 ma valise, mais 
+-1.0525 mail à l’adresse 
+-1.0525 mais depuis deux 
+-1.0525 mais il n'est 
+-1.0525 mais je ne 
+-1.0525 malheureusement pas possible 
+-1.0525 manger ? vous 
+-1.0525 marne la vallée 
+-1.0525 me présenter ? 
+-0.7795 mes bagages ? 
+-1.0525 message personnel. j'ai 
+-1.0525 mille quatre paris. 
+-1.0525 minute ? le 
+-1.0525 minute se trouve 
+-1.0525 minutes gratuites comment 
+-1.0525 minutes où puis-je 
+-1.0525 moi. si votre 
+-1.0525 moins cher pour 
+-1.0525 moment de votre 
+-1.0525 mon bagage ? 
+-1.0525 mon hôtel à 
+-1.0525 mon portable ? 
+-1.0525 mon vol ? 
+-1.0525 monde et est 
+-1.0525 morillons soixante quinze 
+-0.7795 moyen de transport 
+-1.0525 mètres où est 
+-1.0525 n'est donc malheureusement 
+-1.3536 n'est pas nécessaire 
+-1.3536 n'est pas possible 
+-1.0525 navette privée, où 
+-0.7795 navettes pour les 
+-1.0525 ne m'en suis 
+-1.0525 neuf à votre 
+-1.0525 neuf, et au 
+-1.8307 niveau arrivées a 
+-1.8307 niveau arrivées dans 
+-1.8307 niveau arrivées en 
+-0.3531 niveau arrivées porte 
+-1.3235 niveau cdgval après 
+-1.8976 niveau cdgval comment 
+-1.8976 niveau cdgval entre 
+-1.3235 niveau cdgval hall 
+-1.8976 niveau cdgval j'attends 
+-1.0525 niveau cdgval, halls 
+-1.8307 niveau départs dans 
+-1.8307 niveau départs en 
+-1.8307 niveau départs et 
+-1.2566 niveau départs porte 
+-1.8307 niveau départs portes 
+-1.0525 niveau en vous 
+-1.3536 niveau inférieur où 
+-1.3536 niveau inférieur vous 
+-1.0525 niveau inférieur, il 
+-1.0525 niveau supérieur en 
+-1.0525 non réclamés sont 
+-1.0525 normalement à remplir 
+-1.0525 nous joindre par 
+-1.0525 nous sommes désolés 
+-1.0525 nécessaire de voyager 
+-1.0525 objet a été 
+-1.0525 objet aux rayons 
+-1.0525 objet dans l'aéroport, 
+-1.0525 objets dans ma 
+-1.0525 objets non réclamés 
+-1.0525 objets où se 
+-1.0525 objets retirés avant 
+-1.0525 objetstrouvesfourriere at intérieur 
+-1.3536 offre de bars 
+-1.3536 offre de restauration 
+-1.0525 on a volé 
+-1.0525 on m'a confisqué 
+-1.0525 onze ? "pour 
+-1.0525 onze mètres où 
+-1.0525 ou est la 
+-1.0525 ou par mail 
+-1.0525 oui car les 
+-1.0525 oui, en voici 
+-1.0525 ouvert toute l'année, 
+-1.0525 ouvert. avez-vous une 
+-1.0525 où dois -je 
+-1.0525 où dois-je me 
+-1.9556 où est ce 
+-0.2041 où est la 
+-1.9556 où est le 
+-1.9556 où est situé 
+-1.7515 où puis-je acheter 
+-1.7515 où puis-je faire 
+-1.7515 où puis-je manger 
+-1.1774 où puis-je prendre 
+-1.0525 où se trouve 
+-0.0512 où sont les 
+-1.0525 par la porte 
+-1.0525 par le rer 
+-1.0525 par mail à 
+-1.0525 par quelle porte 
+-1.0525 par téléphone au 
+-1.0525 par un ascenseur 
+-1.0525 parcours vers la 
+-1.8976 paris ? compte 
+-1.8976 paris ? oui, 
+-1.3235 paris ? pour 
+-1.8976 paris ? prenez 
+-1.3235 paris ? vous 
+-1.0525 paris comptez environ 
+-1.0525 paris, prenez le 
+-1.0525 paris. vous pouvez 
+-1.0525 paris? je vous 
+-1.0525 part du terminal 
+-1.0525 part mon vol 
+-1.0525 pas nécessaire de 
+-0.7795 pas possible de 
+-1.0525 passagers du vol 
+-0.7795 passagers sortent par 
+-1.0525 passagers? l'espace prières 
+-0.7795 passer une annonce 
+-1.0525 patienter un instant 
+-1.0525 perdu un objet 
+-1.0525 personnel. j'ai perdu 
+-1.0525 peuvent demander à 
+-1.0525 peux recharger mon 
+-1.0525 pharmacie ? la 
+-1.0525 pharmacie où sont 
+-1.0525 pharmacie se situe 
+-1.0525 plan de paris 
+-1.0525 plus proche ? 
+-1.0525 plus rapide pour 
+-1.0525 plus simple. où 
+-1.0525 point dtpp tiret 
+-1.0525 point fr on 
+-1.0525 point gouv point 
+-1.0525 police, et sont 
+-1.0525 portable ? des 
+-1.0525 porte ? tous 
+-1.0525 porte d'embarquement onze 
+-1.0525 porte deux et 
+-1.0525 porte dix, au 
+-1.0525 porte dix-huit avez-vous 
+-1.0525 porte huit et 
+-1.0525 porte huit, il 
+-1.0525 porte quatre où 
+-1.0525 porte quinze quel 
+-1.0525 porte située derrière 
+-1.0525 porte six comment 
+-1.0525 porte trente six, 
+-1.0525 porte trois où 
+-1.0525 porte vingt où 
+-1.0525 portes sept et 
+-1.0525 portes vingt quatre 
+-1.3536 possible de faire 
+-1.3536 possible de les 
+-1.0525 poste ? la 
+-1.0525 poste se situe 
+-1.5297 pour aller au 
+-0.9556 pour aller à 
+-1.0525 pour emprunter les 
+-1.0525 pour la compagnie 
+-1.5297 pour le centre 
+-0.9556 pour le vol 
+-0.9556 pour les hôtels 
+-1.5297 pour les passagers? 
+-0.0969 pour paris ? 
+-1.0525 pour pouvoir emprunter 
+-1.0525 pour prendre un 
+-1.0525 pour toulouse en 
+-1.0525 pour un message 
+-1.0525 pouvez acheter des 
+-1.0525 pouvez nous joindre 
+-1.0525 pouvoir emprunter les 
+-1.0525 prefpol point dtpp 
+-1.0525 prenant le train 
+-1.0525 prendre le rer 
+-1.3536 prendre un café 
+-1.3536 prendre un train 
+-1.0525 prenez le train 
+-1.0525 prenez un taxis, 
+-1.0525 presse, une pharmacie 
+-1.0525 prestataire combien faut-il 
+-1.0525 pris dans votre 
+-1.0525 privée, où dois-je 
+-1.0525 prière pour les 
+-1.0525 prières est ouvert 
+-1.0525 proche ? vous 
+-1.0525 proximité de la 
+-1.0525 présenter ? niveau 
+-1.0525 prévu à l'attérissage 
+-1.0525 publique - niveau 
+-1.0525 puis-je acheter un 
+-1.3536 puis-je faire emballer 
+-1.3536 puis-je faire passer 
+-1.0525 puis-je le récupérer? 
+-1.0525 puis-je manger ? 
+-1.3536 puis-je prendre le 
+-1.3536 puis-je prendre un 
+-1.0525 qu'au niveau inférieur 
+-1.0525 qu'en arrivant chez 
+-1.0525 quand vous vous 
+-1.0525 quarante huit est 
+-1.0525 quarante-huit ? le 
+-1.0525 quatre et trente 
+-1.0525 quatre où est 
+-1.0525 quatre paris. vous 
+-1.0525 que je peux 
+-1.0525 que votre bagage 
+-0.7795 quel est le 
+-1.3536 quel terminal part 
+-1.3536 quel terminal suis-je 
+-1.3536 quelle heure arrive 
+-1.3536 quelle heure commence 
+-1.0525 quelle porte ? 
+-0.7795 qui se trouve 
+-1.0525 qui était enregistrée, 
+-1.0525 quinze jours à 
+-1.0525 quinze les passagers 
+-1.0525 quinze mille quatre 
+-1.0525 quinze minutes gratuites 
+-1.0525 quinze quel est 
+-1.0525 rapide pour aller 
+-1.0525 rapprocher du service 
+-1.0525 rayons x. comment 
+-1.0525 recharger mon portable 
+-1.0525 recommande le rer 
+-1.0525 remplir à l'aéroport 
+-1.0525 remplissant les champs 
+-1.0525 rendez compte que 
+-1.0525 rer a direction 
+-1.0525 rer b de 
+-1.0525 rer où sont 
+-1.0525 rer pour paris 
+-1.0525 rer quel est 
+-1.0525 reseau wifi ? 
+-1.0525 restauration au niveau 
+-1.0525 retirés avant le 
+-1.0525 retrouver? les objets 
+-1.0525 roissypole qui se 
+-1.0525 roulants, au niveau 
+-1.0525 rue des morillons 
+-1.0525 réclamés sont acheminés 
+-1.0525 récupérer. on a 
+-1.0525 récupérer? les objets 
+-1.0525 s' appelle bagage 
+-1.0525 salle d'embarquement faut-il 
+-1.0525 salle d'embarquement. au 
+-1.3536 salle de livraison 
+-1.3536 salle de prière 
+-1.0525 salles d'embarquement, il 
+-1.0525 salons icare, star 
+-1.0525 salons se situent 
+-1.0525 sddep tiret botf 
+-1.0525 se rapprocher du 
+-0.7795 se situe au 
+-1.3536 se situent après 
+-1.3536 se situent au 
+-0.2041 se trouve au 
+-1.9556 se trouve dans 
+-1.9556 se trouve entre 
+-1.9556 se trouve le 
+-1.3536 se trouvent entre 
+-1.3536 se trouvent porte 
+-1.0525 seize se trouve 
+-1.0525 semaines. ai-je une 
+-1.0525 sept et neuf, 
+-1.0525 sept jours sur 
+-1.0525 sept un commencera 
+-1.0525 sept, de six 
+-1.0525 service bagages de 
+-1.0525 services bagages ? 
+-1.0525 si votre objet 
+-1.0525 simple. où puis-je 
+-0.7795 situe au niveau 
+-1.0525 situent après les 
+-1.0525 situent au niveau 
+-1.0525 situé le bureau 
+-1.0525 située derrière vous 
+-1.0525 située face à 
+-1.0525 situés au niveau 
+-1.0525 six comment aller 
+-1.0525 six dois-je detaxer 
+-1.0525 six et cinq 
+-1.0525 six heure trente 
+-1.0525 six où est 
+-1.0525 six rue des 
+-1.0525 six à proximité 
+-1.0525 six, au niveau 
+-1.0525 sncf roissypole qui 
+-1.0525 soixante quinze mille 
+-1.0525 soixante-dix-neuf sont-ils sortis 
+-1.0525 sommes désolés mais 
+-1.0525 sonore pour un 
+-1.0525 sonore? nous sommes 
+-1.0525 sont accessibles par 
+-1.0525 sont acheminés au 
+-1.9556 sont les boutiques 
+-1.9556 sont les bus 
+-1.9556 sont les cars 
+-1.9556 sont les duty-free 
+-1.9556 sont les loueurs 
+-1.9556 sont les navettes 
+-1.9556 sont les services 
+-1.9556 sont les taxis 
+-1.0525 sont normalement à 
+-1.0525 sont situés au 
+-1.0525 sont systématiquement détruits. 
+-1.0525 sont à votre 
+-1.0525 sont-ils sortis ? 
+-1.3536 sortent par la 
+-1.3536 sortent par quelle 
+-1.0525 sortis ? je 
+-1.0525 star alliance, et 
+-1.0525 starbuck a quelle 
+-1.0525 suis aperçu qu'en 
+-1.0525 suis-je ? vous 
+-1.0525 suivant l'état du 
+-1.0525 suivant les indications 
+-1.0525 supérieur en suivant 
+-1.0525 sur cdg ? 
+-1.0525 sur internet via 
+-1.0525 sur sept, de 
+-1.0525 sur votre droite 
+-1.0525 systématiquement détruits. il 
+-1.0525 sécurité, sont systématiquement 
+-1.0525 tapis roulants, au 
+-1.0525 taxi pour paris 
+-1.0525 taxis ? vous 
+-1.0525 taxis au niveau 
+-1.0525 taxis, c’est plus 
+-1.0525 temps pour aller 
+-1.0525 tenu de la 
+-1.0525 terminal dans cette 
+-1.5297 terminal deux ? 
+-1.5297 terminal deux combien 
+-1.5297 terminal deux ou 
+-1.0525 terminal part mon 
+-1.0525 terminal suis-je ? 
+-1.0525 terminal trois a 
+-1.0525 terminal un où 
+-1.0525 tgv se trouve 
+-1.0525 tgv, où est 
+-1.0525 tintouin. ? les 
+-1.0525 tiret botf tiret 
+-1.0525 tiret objetstrouvesfourriere at 
+-1.0525 tiret sddep tiret 
+-1.0525 toulouse en tgv, 
+-1.5297 tous les halls 
+-0.9556 tous les passagers 
+-1.0525 tout au long 
+-1.0525 tout le tintouin. 
+-1.0525 toute l'année, sept 
+-1.0525 trafic où sont 
+-1.3536 train automatique jusqu'à 
+-1.3536 train automatique qui 
+-1.0525 train pour paris 
+-1.0525 train vers paris, 
+-1.0525 train à la 
+-1.3536 transport le moins 
+-1.3536 transport le plus 
+-1.0525 trente du niveau 
+-1.0525 trente minutes où 
+-1.0525 trente six rue 
+-1.0525 trente six, au 
+-1.0525 trente à vingt 
+-1.0525 trois a où 
+-1.0525 trois où puis-je 
+-1.0525 trois sept un 
+-1.7515 trouve au deuxième 
+-0.2739 trouve au niveau 
+-1.7515 trouve au terminal 
+-1.0525 trouve dans le 
+-1.0525 trouve entre la 
+-1.0525 trouve le dépose 
+-1.0525 trouvent entre les 
+-1.0525 trouvent porte trois 
+-0.0521 trouverez des boutiques 
+-1.0525 trouverez les taxis 
+-1.0525 trouverez un distributeur 
+-1.0525 trouverez une offre 
+-1.0525 trouverez à la 
+-1.0525 trouvez au terminal 
+-1.0525 téléphone au 0.821.00.25.25 
+-1.0525 un ascenseur où 
+-1.0525 un billet de 
+-1.0525 un café ? 
+-1.0525 un commencera à 
+-1.0525 un distributeur sur 
+-1.0525 un instant je 
+-1.0525 un message personnel. 
+-1.3536 un objet aux 
+-1.3536 un objet dans 
+-0.7795 un où est 
+-1.0525 un plan de 
+-1.0525 un taxi pour 
+-1.0525 un taxis, c’est 
+-1.0525 un train vers 
+-1.3536 une annonce sonore 
+-1.3536 une annonce sonore? 
+-1.0525 une chance de 
+-1.0525 une consigne à 
+-1.0525 une correspondance pour 
+-1.0525 une navette privée, 
+-0.7795 une offre de 
+-1.0525 une pharmacie où 
+-1.0525 une salle de 
+-1.0525 valise qui était 
+-1.0525 valise, mais je 
+-1.0525 vallée où sont 
+-1.0525 vers la salle 
+-1.0525 vers le centre 
+-1.0525 vers paris, prenez 
+-1.0525 via wifi, et 
+-1.0525 vingt deux heure, 
+-1.0525 vingt où est 
+-1.0525 vingt quatre et 
+-1.0525 voici un où 
+-1.0525 voir les objets 
+-1.0525 voiture ? les 
+-1.0525 vol ? votre 
+-1.0525 vol a seize 
+-1.0525 vol ah trois 
+-1.0525 vol ap cent 
+-0.7795 vol bx cent 
+-1.0525 vol part du 
+-1.0525 volé des objets 
+-1.0525 votre arrivée, quand 
+-1.0525 votre bagage a 
+-1.0525 votre compagnie aérienne. 
+-1.3536 votre disposition au 
+-1.3536 votre disposition à 
+-1.3536 votre droite existe-t-il 
+-1.3536 votre droite à 
+-1.0525 votre objet a 
+-1.0525 votre parcours vers 
+-1.0525 votre prestataire combien 
+-1.0525 votre valise qui 
+-1.0525 votre vol part 
+-1.0525 vous bénéficiez alors 
+-1.0525 vous connectant sur 
+-1.0525 vous conseille le 
+-1.0525 vous demande de 
+-1.0525 vous dirigeant vers 
+-1.0525 vous faudra environ 
+-1.0525 vous les trouverez 
+-1.3536 vous pouvez acheter 
+-1.3536 vous pouvez nous 
+-1.0525 vous recommande le 
+-1.0525 vous rendez compte 
+-1.0525 vous tous les 
+-0.3531 vous trouverez des 
+-1.8307 vous trouverez les 
+-1.8307 vous trouverez un 
+-1.8307 vous trouverez une 
+-1.0525 vous trouvez au 
+-1.3536 vous vous rendez 
+-1.3536 vous vous trouvez 
+-0.7795 voyager avec la 
+-1.0525 vérifie où sont 
+-1.0525 vérifier avec votre 
+-1.0525 wifi ? en 
+-1.0525 wifi, et en 
+-1.0525 x. comment puis-je 
+-1.0525 zone publique - 
+-1.0525 à bagages ? 
+-1.0525 à ce niveau 
+-1.3536 à cette adresse 
+-1.3536 à cette heure 
+-1.0525 à disneyland ? 
+-1.0525 à dix-huit heure 
+-1.0525 à huit heure 
+-1.0525 à l'arrivée du 
+-1.0525 à l'attérissage à 
+-1.0525 à l'aéroport au 
+-1.3536 à la gare 
+-1.3536 à la porte 
+-1.0525 à l’adresse prefpol 
+-1.0525 à mon hôtel 
+-1.0525 à onze mètres 
+-0.7795 à paris ? 
+-1.0525 à paris? je 
+-1.0525 à proximité de 
+-1.0525 à remplir à 
+-1.0525 à vingt deux 
+-1.0525 à voir les 
+-0.9556 à votre disposition 
+-1.5297 à votre droite 
+-1.0525 était enregistrée, il 
+-1.0525 été ouvert. avez-vous 
+-1.0525 été pris dans 
+
+\end\
